@@ -11,11 +11,12 @@ If you're on a PC you can use one of the x86_64 binaries, if you're on a rapsber
 Step 2. 
 
 tar xvf dogecoin-1.14.6-x86_64-linux-gnu.tar.gz
-cd dogecoin-1.14.6
+cd dogecoin-1.14.6/bin/
 
 Step 3. 
 
 run ./dogecoind and then let it run for a min then press ctrl + c to kill it 
+sudo cp dogecoin* /usr/bin/
 
 Step 4. 
 
@@ -30,7 +31,7 @@ internal ip for the machine you're running this on
 rpcuser=username
 rpcpassword=password
 rpcallowip=127.0.0.1
-rpcallowip=10.0.0.222
+rpcallowip=192.168.0.102/10.0.0.102
 maxconnections=50
 rpcport=22555
 server=1
@@ -45,7 +46,7 @@ nano start.sh
 
 copy and paste the following into start.sh
 
-dogecoind -conf=~/.dogecoin/dogecoin.conf -daemon
+dogecoind -conf=/home/yourusernamehere/.dogecoin/dogecoin.conf -daemon
 
 press ctrl + x followed by Y to accept changes to the start.sh
 
