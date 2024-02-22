@@ -1,0 +1,62 @@
+How I setup a dogecoin node in 15 minutes or less 
+
+use linux I don't use windows so this will be for linux only if you want to use Windows you're on your own
+
+Step 1. 
+
+Download Dogecoin https://github.com/dogecoin/dogecoin/releases/tag/v1.14.6
+
+If you're on a PC you can use one of the x86_64 binaries, if you're on a rapsberry Pi you can use the arm-linux one 
+
+Step 2. 
+
+tar xvf dogecoin-1.14.6-x86_64-linux-gnu.tar.gz
+cd dogecoin-1.14.6
+
+Step 3. 
+
+run ./dogecoind and then let it run for a min then press ctrl + c to kill it 
+
+Step 4. 
+
+cd ~/.dogecoin/
+
+Step 5. 
+nano dogecoin.conf
+
+copy and paste the following into dogecoin.conf change the username and password and internal ip to your own 
+internal ip for the machine you're running this on
+
+rpcuser=username
+rpcpassword=password
+rpcallowip=127.0.0.1
+rpcallowip=10.0.0.222
+maxconnections=50
+rpcport=22555
+server=1
+
+press ctrl + x followed by Y to accept changes to the dogecoin.conf 
+
+Step 6. 
+
+create a start.sh script to load the dogecoin.conf by doing the following 
+
+nano start.sh
+
+copy and paste the following into start.sh
+
+dogecoind -conf=~/.dogecoin/dogecoin.conf -daemon
+
+press ctrl + x followed by Y to accept changes to the start.sh
+
+Step 7. 
+
+chmod +x start.sh
+
+Step 8. 
+
+./start.sh
+
+Step 9. 
+
+open up a new terminal and run dogecoin-cli getblockcount
